@@ -10,6 +10,7 @@ import {
   userLoginReducer,
   userRegisterReducer,
   userDetailsReducer,
+  userUpdateProfileReducer,
 } from './reducers/userReducers'
 
 const cartItemsFromStorage = localStorage.getItem('cartItems')
@@ -31,6 +32,7 @@ const store = configureStore({
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
+    userUpdateProfile: userUpdateProfileReducer,
   },
   preloadedState: {
     cart: { cartItems: cartItemsFromStorage },
