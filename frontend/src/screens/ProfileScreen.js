@@ -132,7 +132,7 @@ const ProfileScreen = () => {
               {orders.map((order) => (
                 <tr key={order._id}>
                   {/* {console.log(order)} */}
-                  <td>{order.createdAt.substring(0, 10)}</td>
+                  {/* <td>{order.createdAt.substring(0, 10)}</td> */}
                   <td>{order._id}</td>
                   <td>datum</td>
                   <td>{order.totalPrice} $</td>
