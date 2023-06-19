@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link, useParams, useNavigate, useSearchParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
@@ -7,9 +7,9 @@ import { addToCart, removeFromCart } from '../actions/cartActions'
 
 const CartScreen = () => {
   const { id } = useParams()
-  const [searchParams] = useSearchParams()
   const history = useNavigate()
-  const qty = searchParams.get('qty=') ? Number(searchParams.get('qty=')) : 1
+  const queryParameters = new URLSearchParams(window.location.search)
+  const qty = parseInt(queryParameters.get('qty')) || 1
 
   const dispatch = useDispatch()
 
