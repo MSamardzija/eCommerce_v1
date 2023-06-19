@@ -20,7 +20,6 @@ const CartScreen = () => {
     if (id) {
       dispatch(addToCart(id, qty))
     }
-    dispatch(addToCart(id, qty))
   }, [dispatch, id, qty])
 
   const removeFromCartHandler = (id) => {
