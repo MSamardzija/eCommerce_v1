@@ -7,7 +7,7 @@ import { addToCart, removeFromCart } from '../actions/cartActions'
 
 const CartScreen = () => {
   const { id } = useParams()
-  const history = useNavigate()
+  const navigate = useNavigate()
   const queryParameters = new URLSearchParams(window.location.search)
   const qty = parseInt(queryParameters.get('qty')) || 1
 
@@ -27,7 +27,7 @@ const CartScreen = () => {
   }
 
   const checkoutHandler = () => {
-    history('/login?redirect=/shipping')
+    navigate('/login?redirect=/shipping')
   }
 
   return (

@@ -10,7 +10,7 @@ const ShippingScreen = () => {
   const cart = useSelector((state) => state.cart)
   const { shippingAddress } = cart
 
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const [address, setAddress] = useState(shippingAddress.address)
   const [city, setCity] = useState(shippingAddress.city)
@@ -23,7 +23,7 @@ const ShippingScreen = () => {
     e.preventDefault()
     dispatch(saveShippingAddress({ address, city, postalCode, country }))
 
-    history('/payment')
+    navigate('/payment')
   }
 
   return (
