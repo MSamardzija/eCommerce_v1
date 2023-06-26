@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { createOrder } from '../actions/orderActions'
+import { CART_RESET_ITEM } from '../constants/cartConstants'
 
 const PlaceOrderScreen = () => {
   const dispatch = useDispatch()
@@ -33,6 +34,7 @@ const PlaceOrderScreen = () => {
 
   useEffect(() => {
     if (success) {
+      dispatch({ type: CART_RESET_ITEM })
       navigate(`/order/${order._id}`)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
