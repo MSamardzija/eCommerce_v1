@@ -10,6 +10,9 @@ const Header = () => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
+  // Using it to count numbers of items in shopping cart
+  const cartLength = useSelector((state) => state.cart.cartItems.length)
+
   const logoutHandler = () => {
     dispatch(logout())
   }
@@ -27,7 +30,26 @@ const Header = () => {
             <Nav className='ms-auto'>
               <LinkContainer to='/cart'>
                 <Nav.Link>
-                  <i className='fas fa-shopping-cart'></i> Cart
+                  <div style={{ position: 'relative', height: '20px' }}>
+                    <i className='fas fa-shopping-cart'>
+                      {cartLength !== 0 && (
+                        <span
+                          style={{
+                            position: 'absolute',
+                            top: '-5px',
+                            left: '-10px',
+                            background: '#170503',
+                            padding: '4px',
+                            borderRadius: '20px',
+                            fontSize: '12px',
+                          }}
+                        >
+                          {cartLength !== 0 && cartLength}
+                        </span>
+                      )}
+                    </i>{' '}
+                    Cart
+                  </div>
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
